@@ -30,7 +30,7 @@ class InstantlyApiClient {
 
   /// Lists all campaigns in the Instantly API.
   Future<List<Campaign>> listCampaigns({String? skip, String? limit}) async {
-    final response = await _dio.get<List<Map<String, dynamic>>>(
+    final response = await _dio.get<List<dynamic>>(
       '/campaign/list',
       queryParameters: {
         'skip': skip,
@@ -43,7 +43,9 @@ class InstantlyApiClient {
       return [];
     }
 
-    return response.data!.map(Campaign.fromJson).toList();
+    return response.data!
+        .map((e) => Campaign.fromJson(e as Map<String, dynamic>))
+        .toList();
   }
 
   /// Creates a new campaign in the Instantly API.
@@ -183,7 +185,7 @@ class InstantlyApiClient {
     String? startDate,
     String? endDate,
   }) async {
-    final response = await _dio.get<List<Map<String, dynamic>>>(
+    final response = await _dio.get<List<dynamic>>(
       '/analytics/campaign/count',
       queryParameters: {
         if (campaignId != null) 'campaign_id': campaignId,
@@ -197,7 +199,9 @@ class InstantlyApiClient {
       return [];
     }
 
-    return (response.data!).map(CampaignCount.fromJson).toList();
+    return (response.data!)
+        .map((e) => CampaignCount.fromJson(e as Map<String, dynamic>))
+        .toList();
   }
 
   /// Gets the leads for a campaign in the Instantly API.
@@ -306,7 +310,7 @@ class InstantlyApiClient {
 
   /// Lists all accounts in the Instantly API.
   Future<List<Account>> listAccounts({int? limit, int? skip}) async {
-    final response = await _dio.get<List<Map<String, dynamic>>>(
+    final response = await _dio.get<List<dynamic>>(
       '/account/list',
       queryParameters: {
         'limit': limit,
@@ -319,7 +323,9 @@ class InstantlyApiClient {
       return [];
     }
 
-    return response.data!.map(Account.fromJson).toList();
+    return response.data!
+        .map((e) => Account.fromJson(e as Map<String, dynamic>))
+        .toList();
   }
 
   Future<AccountVitals> checkAccountVitals(List<String> accounts) async {
@@ -385,7 +391,7 @@ class InstantlyApiClient {
 
   /// Lists all emails in the Instantly API.
   Future<List<Email>> listEmails() async {
-    final response = await _dio.get<List<Map<String, dynamic>>>(
+    final response = await _dio.get<List<dynamic>>(
       '/unibox/emails/',
       queryParameters: {
         'api_key': _apiKey,
@@ -397,7 +403,9 @@ class InstantlyApiClient {
       return [];
     }
 
-    return response.data!.map(Email.fromJson).toList();
+    return response.data!
+        .map((e) => Email.fromJson(e as Map<String, dynamic>))
+        .toList();
   }
 
   /// Counts the unread emails in the Instantly API.
