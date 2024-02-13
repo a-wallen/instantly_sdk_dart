@@ -32,7 +32,7 @@ extension CampaignExtension on Campaign {
     if (name != null) return copyWith();
 
     // If the name is not set, get the campaign from the API.
-    final campaign = await client.getCampaignName(id);
+    final campaign = await client.getCampaignName(campaignId: id);
     return copyWith(name: campaign?.name);
   }
 
@@ -44,7 +44,7 @@ extension CampaignExtension on Campaign {
     if (status != null) return copyWith();
 
     // If the status is not set, get the campaign from the API.
-    final campaign = await client.getCampaignStatus(id);
+    final campaign = await client.getCampaignStatus(campaignId: id);
     return copyWith(status: campaign?.status);
   }
 
@@ -56,7 +56,7 @@ extension CampaignExtension on Campaign {
     if (accounts != null) return copyWith();
 
     // If the accounts are not set, get the campaign from the API.
-    final campaign = await client.getCampaignAccounts(id);
+    final campaign = await client.getCampaignAccounts(campaignId: id);
     return copyWith(accounts: campaign.accounts);
   }
 }
