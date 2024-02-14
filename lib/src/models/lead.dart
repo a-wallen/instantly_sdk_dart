@@ -15,7 +15,9 @@ class Lead with _$Lead {
     String? personalization,
     String? phone,
     String? website,
-    @CustomVariableConverter() List<CustomVariable>? customVariables,
+    @JsonKey(name: 'custom_variables')
+    @CustomVariableConverter()
+    List<CustomVariable>? customVariables,
   }) = _Lead;
 
   /// Create a lead from a JSON object.

@@ -16,7 +16,7 @@ _$LeadImpl _$$LeadImplFromJson(Map<String, dynamic> json) => _$LeadImpl(
       website: json['website'] as String?,
       customVariables:
           _$JsonConverterFromJson<Map<String, dynamic>, List<CustomVariable>>(
-              json['customVariables'],
+              json['custom_variables'],
               const CustomVariableConverter().fromJson),
     );
 
@@ -29,7 +29,7 @@ Map<String, dynamic> _$$LeadImplToJson(_$LeadImpl instance) =>
       'personalization': instance.personalization,
       'phone': instance.phone,
       'website': instance.website,
-      'customVariables':
+      'custom_variables':
           _$JsonConverterToJson<Map<String, dynamic>, List<CustomVariable>>(
               instance.customVariables, const CustomVariableConverter().toJson),
     };

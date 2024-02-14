@@ -30,6 +30,7 @@ mixin _$Lead {
   String? get personalization => throw _privateConstructorUsedError;
   String? get phone => throw _privateConstructorUsedError;
   String? get website => throw _privateConstructorUsedError;
+  @JsonKey(name: 'custom_variables')
   @CustomVariableConverter()
   List<CustomVariable>? get customVariables =>
       throw _privateConstructorUsedError;
@@ -52,7 +53,9 @@ abstract class $LeadCopyWith<$Res> {
       String? personalization,
       String? phone,
       String? website,
-      @CustomVariableConverter() List<CustomVariable>? customVariables});
+      @JsonKey(name: 'custom_variables')
+      @CustomVariableConverter()
+      List<CustomVariable>? customVariables});
 }
 
 /// @nodoc
@@ -129,7 +132,9 @@ abstract class _$$LeadImplCopyWith<$Res> implements $LeadCopyWith<$Res> {
       String? personalization,
       String? phone,
       String? website,
-      @CustomVariableConverter() List<CustomVariable>? customVariables});
+      @JsonKey(name: 'custom_variables')
+      @CustomVariableConverter()
+      List<CustomVariable>? customVariables});
 }
 
 /// @nodoc
@@ -199,7 +204,9 @@ class _$LeadImpl implements _Lead {
       this.personalization,
       this.phone,
       this.website,
-      @CustomVariableConverter() final List<CustomVariable>? customVariables})
+      @JsonKey(name: 'custom_variables')
+      @CustomVariableConverter()
+      final List<CustomVariable>? customVariables})
       : _customVariables = customVariables;
 
   factory _$LeadImpl.fromJson(Map<String, dynamic> json) =>
@@ -224,6 +231,7 @@ class _$LeadImpl implements _Lead {
   final String? website;
   final List<CustomVariable>? _customVariables;
   @override
+  @JsonKey(name: 'custom_variables')
   @CustomVariableConverter()
   List<CustomVariable>? get customVariables {
     final value = _customVariables;
@@ -294,6 +302,7 @@ abstract class _Lead implements Lead {
       final String? personalization,
       final String? phone,
       final String? website,
+      @JsonKey(name: 'custom_variables')
       @CustomVariableConverter()
       final List<CustomVariable>? customVariables}) = _$LeadImpl;
 
@@ -317,6 +326,7 @@ abstract class _Lead implements Lead {
   @override
   String? get website;
   @override
+  @JsonKey(name: 'custom_variables')
   @CustomVariableConverter()
   List<CustomVariable>? get customVariables;
   @override
